@@ -1,21 +1,14 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
+const supabase = require('./config/db');
 
-const doctorRoutes = require('./routes/doctorRoutes');
+async function getUsers() {
+  const { data, error } = await supabase.from('users').select('*');
 
-const app = express();
-const PORT = process.env.PORT || 5000;
+  if (error) {
+    console.error("❌ Supabase Query Error:", error);
+    return;
+  }
+  
+  console.log("✅ Users:", data);
+}
 
-app.use(cors());
-app.use(express.json());
-
-app.use('/api/doctors', doctorRoutes);
-
-app.get('/', (req, res) => {
-  res.send('Synapps Backend API is Running');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+getUsers();

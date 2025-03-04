@@ -1,15 +1,17 @@
-const { Pool } = require('pg');
-require('dotenv').config(); // Load .env variables
+require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
 
-console.log("Connecting to database:", process.env.SUPABASE_DATABASE_URL); // Debugging
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
-const pool = new Pool({
-  connectionString: process.env.SUPABASE_DATABASE_URL,
-  ssl: { rejectUnauthorized: false }, // Supabase requires SSL
-});
+console.log("Connecting to Supabase:", supabaseUrl);
 
-pool.connect()
-  .then(() => console.log('✅ Connected to Supabase Database'))
-  .catch(err => console.error('❌ Database connection error:', err));
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error("❌ Missing Supabase environment variables!");
+  process.exit(1);
+}
 
-module.exports = pool;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+module.exports = supabase;
+
