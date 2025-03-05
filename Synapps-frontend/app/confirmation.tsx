@@ -1,10 +1,23 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useEffect } from 'react';
+import { sendPushNotification } from '@/hooks/useNotificationObserver';
 
 const ConfirmationPage = () => {
   const router = useRouter();
+  useEffect(() => {
+    const sendNotification = async () => {
+      try {
+        await sendPushNotification();
+        console.log('Push notification scheduled');
+      } catch (error) {
+        console.error('Error sending push notification:', error);
+      }
+    };
 
+    sendNotification(); // Call the function when the component mounts
+  }, []);
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/tick.png')} style={styles.image} />
