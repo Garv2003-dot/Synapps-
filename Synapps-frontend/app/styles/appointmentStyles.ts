@@ -1,62 +1,94 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF", // Soft warm background
   },
   card: {
-    backgroundColor: "#EDE8D0",
-    padding: 15,
+    backgroundColor: "#EDE8D0", // Card color
+    padding: 20,
     borderRadius: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 4,
     marginBottom: 20,
   },
-  doctorName: {
+  header: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 5,
-  },
-  datePicker: {
-    backgroundColor: "#F2F2F2",
-    padding: 12,
-    borderRadius: 10,
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  dateText: {
-    fontSize: 16,
     color: "#333",
+    marginBottom: 8,
+  },
+  subText: {
+    fontSize: 16,
+    color: "#555",
+    marginBottom: 4,
+  },
+  section: {
+    marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: "bold",
+    color: "#333",
     marginBottom: 10,
   },
-  timeSlot: {
-    backgroundColor: "#F2F2F2",
-    padding: 10,
-    borderRadius: 8,
-    margin: 5,
-    flex: 1,
-    alignItems: "center",
-  },
-  selectedSlot: {
+  dateButton: {
     backgroundColor: "#EDE8D0",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  dateText: {
+    fontSize: 16,
+    color: "#333",
+    fontWeight: "bold",
+  },
+  timeSlot: {
+    backgroundColor: "#FFF",
+    padding: 12,
+    margin: 5,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    alignItems: "center",
+    width: "30%",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  selectedTimeSlot: {
+    backgroundColor: "#EDE8D0", // Highlighted slot color
+    borderColor: "#BFAF80",
   },
   timeText: {
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#333",
   },
   bookButton: {
-    backgroundColor: "#EDE8D0",
-    paddingVertical: 15,
+    backgroundColor: "#EDE8D0", // Button color
+    padding: 15,
     borderRadius: 10,
     alignItems: "center",
-    marginTop: 20,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 4,
   },
-  bookText: {
+  bookButtonText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#000",
+    color: "#333",
   },
 });
+
+export default styles;
