@@ -1,14 +1,15 @@
-const supabase = require('./config/db');
+const express = require('express');
+const cors = require('cors'); 
+const doctorRoutes = require('./routes/doctorRoutes'); 
 
-async function getUsers() {
-  const { data, error } = await supabase.from('users').select('*');
+const app = express();
+app.use(cors()); 
+app.use(express.json()); 
 
-  if (error) {
-    console.error("❌ Supabase Query Error:", error);
-    return;
-  }
-  
-  console.log("✅ Users:", data);
-}
+// Mount routes
+app.use('/doctors', doctorRoutes);
 
-getUsers();
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
