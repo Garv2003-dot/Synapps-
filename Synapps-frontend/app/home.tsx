@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image, FlatList, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './styles/homePageStyles';
@@ -48,23 +48,21 @@ const HomePage = () => {
     <View style={styles.container}>
       <Text style={styles.hiText}>Hi,</Text>
       <Text style={styles.welcomeText}>Welcome Back</Text>
-
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <FlatList
-          data={showMore ? [...primaryButtons.filter(item => !item.isMore), ...moreButtons] : primaryButtons}
-          numColumns={2}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.featureButton}
-              onPress={() => handleNavigation(item.apiName, item.isMore)}
-            >
-              {item.icon && <Image source={item.icon} style={styles.buttonIcon} />}
-              <Text style={styles.buttonText}>{item.text}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </ScrollView>
+      <FlatList
+        contentContainerStyle={styles.scrollContainer}
+        data={showMore ? [...primaryButtons.filter(item => !item.isMore), ...moreButtons] : primaryButtons}
+        numColumns={2}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.featureButton}
+            onPress={() => handleNavigation(item.apiName, item.isMore)}
+          >
+            {item.icon && <Image source={item.icon} style={styles.buttonIcon} />}
+            <Text style={styles.buttonText}>{item.text}</Text>
+          </TouchableOpacity>
+        )}
+      />
       <View style={styles.bottomNav}>
         <TouchableOpacity style={styles.navButton}>
           <Ionicons name="home-outline" size={28} color="#333" />

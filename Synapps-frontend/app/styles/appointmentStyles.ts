@@ -4,10 +4,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#FFFFFF", // Soft warm background
+    backgroundColor: "#FFFFFF",
   },
   card: {
-    backgroundColor: "#EDE8D0", // Card color
+    backgroundColor: "#EDE8D0",
     padding: 20,
     borderRadius: 12,
     shadowColor: "#000",
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   selectedTimeSlot: {
-    backgroundColor: "#EDE8D0", // Highlighted slot color
+    backgroundColor: "#EDE8D0",
     borderColor: "#BFAF80",
   },
   timeText: {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   bookButton: {
-    backgroundColor: "#EDE8D0", // Button color
+    backgroundColor: "#EDE8D0",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",

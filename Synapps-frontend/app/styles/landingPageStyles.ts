@@ -32,7 +32,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   registerText: {
-    color: '#007BFF', // Blue color for visibility
+    color: '#007BFF',
     fontWeight: 'bold',
     textDecorationLine: 'underline',
   },  

@@ -50,6 +50,38 @@ const loginPageStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+
+  /** Google Login Button Styles */
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    paddingVertical: 12,
+    borderRadius: 10,
+    marginTop: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3,
+  },
+  googleLogo: {
+    width: 24,
+    height: 24,
+    marginRight: 10,
+  },
+  googleText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    marginBottom: 10,
+  },
 });
 
 export default loginPageStyles;

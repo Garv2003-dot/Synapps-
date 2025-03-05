@@ -5,72 +5,63 @@ const registerPageStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
-    paddingHorizontal: 20,
+    padding: 20,
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-    alignSelf: 'flex-start',
+    marginBottom: 20,
+  },
+  subtitle: {
+    fontSize: 18,
+    marginBottom: 40,
+    color: '#888',
   },
   inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
     width: '100%',
-    marginBottom: 15,
   },
   input: {
-    width: '100%',
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 10,
-    paddingHorizontal: 15,
+    flex: 1,
+    padding: 10,
     fontSize: 16,
-    backgroundColor: '#F8F8F8',
     color: '#333',
   },
-  signUpButton: {
-    backgroundColor: '#EDE8D0',
-    paddingVertical: 15,
-    width: '100%',
-    borderRadius: 10,
-    alignItems: 'center',
+  icon: {
+    marginLeft: 10,
+    color: '#888',
+  },
+  registerButton: {
+    backgroundColor: '#4CAF50',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
     marginTop: 20,
   },
-  signUpButtonText: {
+  registerText: {
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
   },
-  alreadyHaveAccountContainer: {
-    flexDirection: 'row',
-    marginTop: 15,
+  errorText: {
+    color: 'red',
+    fontSize: 14,
+    marginTop: 10,
   },
-  alreadyHaveAccount: {
-    fontSize: 16,
-    color: '#666',
+  successText: {
+    color: 'green',
+    fontSize: 14,
+    marginTop: 10,
   },
   loginLink: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    marginTop: 20,
     color: '#007BFF',
-    marginLeft: 5,
-  },
-  termsContainer: {
-    position: 'absolute',
-    bottom: 20, // Moves text to the bottom properly
-    width: '90%',
-  },
-  termsText: {
     fontSize: 14,
-    color: '#555',
-    textAlign: 'center',
-  },
-  termsLink: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#007BFF',
   },
 });
 
