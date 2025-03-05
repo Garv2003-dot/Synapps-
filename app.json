@@ -5,6 +5,14 @@
         "projectId": "1cc5d591-450c-4375-b99e-14ccdf0d26d5"
       }
     },
-    "owner": "garv389"
+    "owner": "garv389",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1cc5d591-450c-4375-b99e-14ccdf0d26d5"
+    },
+    "android": {},
+    "ios": {}
   }
 }
