@@ -17,7 +17,7 @@ const HomePage = () => {
   const [showMore, setShowMore] = useState(false);
 
   const primaryButtons: ButtonType[] = [
-    { id: 1, icon: require('../assets/images/eyelogo.png'), text: 'Eye specialist', apiName: 'Eye specialist' },
+    { id: 1, icon: require('../assets/images/eyelogo.png'), text: 'Eye Specialist', apiName: 'Eye Specialist' },
     { id: 2, icon: require('../assets/images/skinlogo.png'), text: 'Dermatology', apiName: 'Dermatologist' },
     { id: 3, icon: require('../assets/images/heartlogo.png'), text: 'Cardiologist', apiName: 'Cardiologist' },
     { id: 4, icon: require('../assets/images/teethlogo.png'), text: 'Dentist', apiName: 'Dentist' },
@@ -28,7 +28,7 @@ const HomePage = () => {
   const moreButtons: ButtonType[] = [
     { id: 7, icon: require('../assets/images/entlogo.png'), text: 'ENT', apiName: 'ENT' },
     { id: 8, icon: require('../assets/images/pedilogo.png'), text: 'Paediatrics', apiName: 'Paediatrics' },
-    { id: 9, icon: require('../assets/images/obglogo.png'), text: 'Ob-gyn', apiName: 'Ob-gyn' },
+    { id: 9, icon: require('../assets/images/obglogo.png'), text: 'Ob-Gyn', apiName: 'Ob-Gyn' },
     { id: 10, icon: require('../assets/images/psychlogo.png'), text: 'Psychiatry', apiName: 'Psychiatry' },
     { id: 11, icon: require('../assets/images/physilogo.png'), text: 'Physician', apiName: 'Physician' },
   ];
