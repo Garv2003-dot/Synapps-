@@ -89,6 +89,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
   },
+  disabledTimeSlot: {
+    backgroundColor: "#ccc",
+    borderColor: "#999",
+    opacity: 0.6, 
+  },  
 });
 
 export default styles;
