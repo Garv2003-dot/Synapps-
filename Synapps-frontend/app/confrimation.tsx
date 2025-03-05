@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { sendPushNotification } from '@/hooks/useNotificationObserver';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const ConfirmationPage = () => {
   const router = useRouter();
+
+  useEffect(() => {
+    const sendNotification = async () => {
+      try {
+        await sendPushNotification();
+        console.log('Push notification scheduled');
+      } catch (error) {
+        console.error('Error sending push notification:', error);
+      }
+    };
+
+    sendNotification(); // Call the function when the component mounts
+  }, []); // Empty dependency array ensures it runs only once when the page loads
 
   return (
     <View style={styles.container}>

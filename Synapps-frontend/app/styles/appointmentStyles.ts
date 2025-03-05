@@ -54,6 +54,9 @@ export default StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
   },
+  disabledButton: {
+    backgroundColor: '#ccc',
+  },
   bookText: {
     fontSize: 18,
     fontWeight: "bold",
