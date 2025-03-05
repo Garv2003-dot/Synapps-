@@ -28,7 +28,7 @@ const registerPageStyles = StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 16,
     backgroundColor: '#F8F8F8',
-    color: '#333', // Ensures input text is visible
+    color: '#333',
   },
   signUpButton: {
     backgroundColor: '#EDE8D0',
