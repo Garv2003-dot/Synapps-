@@ -15,11 +15,11 @@ export default function usePushNotification() {
         });
 
         notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-            console.log('📩 Notification Received:', notification);
+            console.log('Notification Received:', notification);
         });
 
         responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-            console.log('📨 Notification Response:', response);
+            console.log('Notification Response:', response);
         });
 
         return () => {
@@ -44,7 +44,7 @@ async function registerForPushNotificationsAsync(): Promise<string | undefined> 
     }
 
     if (!Device.isDevice) {
-        alert('⚠ Must use a physical device for push notifications.');
+        alert('Must use a physical device for push notifications.');
         return;
     }
 
@@ -57,7 +57,7 @@ async function registerForPushNotificationsAsync(): Promise<string | undefined> 
     }
 
     if (finalStatus !== 'granted') {
-        alert('🚫 Failed to get push token!');
+        alert(' Failed to get push token!');
         return;
     }
 
@@ -72,17 +72,14 @@ async function registerForPushNotificationsAsync(): Promise<string | undefined> 
 
 export async function sendPushNotification() {
     await Notifications.scheduleNotificationAsync({
-    content: {
-        title: '🔔 Your appointment is confirmed!',
-        body: 'This is a push notification!',
-        data: { someData: 'goes here' },
-    },
-    trigger: {
-        seconds: 1,
-        repeats: false,
-        type: "timeInterval",
-    }as Notifications.TimeIntervalTriggerInput,
-});
-
-    
-};
+        content: {
+            title: 'Your appointment is confirmed!',
+            body: 'This is a push notification!',
+            data: { someData: 'goes here' },
+        },
+        trigger: {
+            seconds: 1,
+            repeats: false, 
+        },
+    });
+}

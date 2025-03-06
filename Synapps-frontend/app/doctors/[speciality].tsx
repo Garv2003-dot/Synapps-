@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, ActivityIndicator, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import * as Location from "expo-location"; 
 import { useLocalSearchParams, useRouter } from "expo-router";
-import supabase from "../config/supabaseClient"; // Import Supabase client
+import supabase from "../config/supabaseClient"; 
 
 interface Doctor {
   doctor_id: number;
@@ -15,10 +15,10 @@ interface Doctor {
   phone: string;
   latitude: number;
   longitude: number;
-  distance?: number; // Distance will be added dynamically
+  distance?: number; 
 }
 
-const GOOGLE_API_KEY = "AIzaSyBXWXNbuIm_n06aq2dxkV4kCAd72831r20"; // 🔹 Replace with your valid Google API Key
+const GOOGLE_API_KEY = "AIzaSyBXWXNbuIm_n06aq2dxkV4kCAd72831r20";
 const ROUTES_API_URL = "https://routes.googleapis.com/directions/v2:computeRoutes";
 
 const SpecialityPage = () => {
@@ -32,15 +32,12 @@ const SpecialityPage = () => {
 
   useEffect(() => {
     (async () => {
-      // Ask for location permission
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         Alert.alert("Permission Denied", "Location permission is required to find nearby doctors.");
         setLoading(false);
         return;
       }
-
-      // Get user's current location
       const location = await Location.getCurrentPositionAsync({});
       setUserLocation({
         latitude: location.coords.latitude,
@@ -52,9 +49,8 @@ const SpecialityPage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        if (!userLocation) return; // Wait for user location
+        if (!userLocation) return; 
 
-        // Fetch doctors from Supabase
         const { data, error } = await supabase
           .from("doctors")
           .select("*")
@@ -64,7 +60,6 @@ const SpecialityPage = () => {
 
         const doctorsData: Doctor[] = data;
         
-        // Fetch distances using Google Routes API
         const sortedDoctors = await getSortedDoctorsByDistance(doctorsData, userLocation.latitude, userLocation.longitude);
         setDoctors(sortedDoctors);
       } catch (error) {
@@ -102,16 +97,14 @@ const SpecialityPage = () => {
 
           return {
             ...doctor,
-            distance: result.routes[0].distanceMeters, // Distance in meters
+            distance: result.routes[0].distanceMeters, 
           };
         } catch (error) {
           console.error("Error fetching distance for doctor:", doctor.full_name, error);
-          return { ...doctor, distance: Infinity }; // If error, set high distance
+          return { ...doctor, distance: Infinity };
         }
       })
     );
-
-    // Sort doctors by distance (nearest first)
     return doctorsWithDistances.sort((a, b) => (a.distance || Infinity) - (b.distance || Infinity));
   };
 

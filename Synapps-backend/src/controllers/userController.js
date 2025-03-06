@@ -1,9 +1,8 @@
-const { supabase } = require('../config/db'); // Supabase backend client
+const { supabase } = require('../config/db');
 
 const registerUser = async (req, res) => {
     const { fullName, email, password } = req.body;
 
-    // Create user in Supabase Auth
     const { data, error } = await supabase.auth.signUp({
         email,
         password,

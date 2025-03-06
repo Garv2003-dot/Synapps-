@@ -51,7 +51,6 @@ const loginPageStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  /** Google Login Button Styles */
   googleButton: {
     flexDirection: 'row',
     alignItems: 'center',

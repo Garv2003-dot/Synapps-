@@ -16,7 +16,7 @@ const ConfirmationPage = () => {
       }
     };
 
-    sendNotification(); // Call the function when the component mounts
+    sendNotification();
   }, []);
   return (
     <View style={styles.container}>

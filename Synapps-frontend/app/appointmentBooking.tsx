@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, FlatList, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import supabase from "./config/supabaseClient"; // Make sure the import path is correct
+import supabase from "./config/supabaseClient";
 import styles from "./styles/appointmentStyles";
 
 const AppointmentBooking = () => {
@@ -17,7 +17,7 @@ const AppointmentBooking = () => {
   const timeSlots = [
     "10:00:00", "10:30:00", "11:00:00", "11:30:00", "12:00:00",
     "12:30:00", "1:00:00", "1:30:00", "2:00:00", "2:30:00",
-  ]; // Ensure these match the TIME format in your DB
+  ]; 
 
   useEffect(() => {
     if (selectedDate) {
@@ -26,7 +26,7 @@ const AppointmentBooking = () => {
   }, [selectedDate]);
 
   const fetchBookedSlots = async (date: Date) => {
-    const formattedDate = date.toISOString().split("T")[0]; // Convert to YYYY-MM-DD format
+    const formattedDate = date.toISOString().split("T")[0];
 
     const { data, error } = await supabase
       .from("appointments")
@@ -42,7 +42,7 @@ const AppointmentBooking = () => {
   };
 
   const handleDateChange = (event: any, date?: Date) => {
-    setShowPicker(Platform.OS === "ios"); // Keep picker open on iOS
+    setShowPicker(Platform.OS === "ios");
     if (date) {
       setSelectedDate(date);
     }
@@ -58,8 +58,8 @@ const AppointmentBooking = () => {
 
     const { error } = await supabase.from("appointments").insert([
       {
-        patient_id: 1, // Replace with actual logged-in user ID
-        doctor_id: 1,  // Replace with actual doctor ID
+        patient_id: 1, 
+        doctor_id: 1,
         appointment_date: formattedDate,
         appointment_time: selectedTime,
         status: "pending",
@@ -83,7 +83,6 @@ const AppointmentBooking = () => {
       contentContainerStyle={styles.container}
       ListHeaderComponent={
         <>
-          {/* Doctor Card */}
           <View style={styles.card}>
             <Text style={styles.header}>{params.name}</Text>
             <Text style={styles.subText}>Experience: {params.experience} years</Text>
@@ -91,8 +90,6 @@ const AppointmentBooking = () => {
             <Text style={styles.subText}>Schedule: {params.schedule}</Text>
             <Text style={styles.subText}>Consultation Fee: ₹{params.fees}</Text>
           </View>
-
-          {/* Date Picker */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Select Date</Text>
             <TouchableOpacity style={styles.dateButton} onPress={() => setShowPicker(true)}>
@@ -107,13 +104,11 @@ const AppointmentBooking = () => {
                 mode="date"
                 display="default"
                 minimumDate={new Date()}
-                maximumDate={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)} // 7 days ahead
+                maximumDate={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)}
                 onChange={handleDateChange}
               />
             )}
           </View>
-
-          {/* Time Slots Title */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Select Time</Text>
           </View>
@@ -124,7 +119,7 @@ const AppointmentBooking = () => {
           style={[
             styles.timeSlot,
             selectedTime === item && styles.selectedTimeSlot,
-            bookedSlots.includes(item) && styles.disabledTimeSlot, // Disable booked slots
+            bookedSlots.includes(item) && styles.disabledTimeSlot, 
           ]}
           onPress={() => !bookedSlots.includes(item) && setSelectedTime(item)}
           disabled={bookedSlots.includes(item)}
